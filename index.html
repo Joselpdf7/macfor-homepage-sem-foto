@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <title>Macfor — Micro Moments. Big Wins.</title>
+  <meta name="description" content="Macfor: precisão estratégica com velocidade. Transformamos marcas em multiplicadoras de micro-impactos para consolidá-las como as mais lembradas, desejadas e lucrativas." />
+
+  <!-- Fonts: Poppins (brand) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script type="module" crossorigin src="/macfor-homepage-sem-foto/assets/index-CyrDQoE9.js"></script>
+  <link rel="stylesheet" crossorigin href="/macfor-homepage-sem-foto/assets/index-C0uQb4PG.css">
+</head>
+<body>
+  <!-- PRELOADER -->
+  <div id="preloader" class="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__logo">
+        <img src="/macfor-homepage-sem-foto/macfor-logo.webp" alt="Macfor" class="preloader__logo-img" width="160" height="27" />
+      </div>
+      <div class="preloader__bar">
+        <div class="preloader__bar-fill"></div>
+      </div>
+      <div class="preloader__counter">0%</div>
+    </div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor">
+    <div class="cursor__dot"></div>
+    <div class="cursor__outline"></div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" aria-label="Macfor Home">
+        <img src="/macfor-homepage-sem-foto/macfor-logo.webp" alt="Macfor" class="nav__logo-img" width="120" height="20" />
+      </a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="#about" class="nav__link">Sobre</a>
+        <a href="#services" class="nav__link">Serviços</a>
+        <a href="#cases" class="nav__link">Cases</a>
+        <a href="#insights" class="nav__link">Insights</a>
+        <a href="#contact" class="nav__link">Contato</a>
+      </nav>
+
+      <div class="nav__right">
+        <button class="nav__theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="nav__theme-icon">◐</span>
+        </button>
+        <a href="#contact" class="nav__cta">Fale Conosco</a>
+        <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu__inner">
+      <nav class="mobile-menu__nav">
+        <a href="#about" class="mobile-menu__link">Sobre</a>
+        <a href="#services" class="mobile-menu__link">Serviços</a>
+        <a href="#cases" class="mobile-menu__link">Cases</a>
+        <a href="#insights" class="mobile-menu__link">Insights</a>
+        <a href="#contact" class="mobile-menu__link">Contato</a>
+      </nav>
+      <div class="mobile-menu__footer">
+        <div class="mobile-menu__socials">
+          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="#" target="_blank" rel="noopener">Instagram</a>
+          <a href="#" target="_blank" rel="noopener">YouTube</a>
+          <a href="#" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL FLOATING ORBS (persist across entire page) -->
+  <div class="global-orbs" aria-hidden="true">
+    <div class="global-orb global-orb--1"></div>
+    <div class="global-orb global-orb--2"></div>
+    <div class="global-orb global-orb--3"></div>
+    <div class="global-orb global-orb--4"></div>
+    <div class="global-orb global-orb--5"></div>
+    <div class="global-orb global-orb--6"></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main id="smooth-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero" data-nav-theme="dark">
+      <canvas class="hero__canvas" id="heroCanvas"></canvas>
+      <div class="hero__gradient-overlay"></div>
+
+      <div class="hero__content">
+        <div class="hero__eyebrow" data-anim="fade-up">
+          <span class="hero__eyebrow-line"></span>
+          <span>Precisão estratégica com velocidade</span>
+        </div>
+
+        <h1 class="hero__title">
+          <span class="hero__title-line" data-anim="text-reveal">
+            <span class="hero__title-word">MICRO</span>
+            <span class="hero__title-word">MOMENTS.</span>
+          </span>
+          <span class="hero__title-line hero__title-line--accent" data-anim="text-reveal">
+            <span class="hero__title-word gradient-text">BIG WINS.</span>
+          </span>
+        </h1>
+
+        <div class="hero__bottom">
+          <p class="hero__description" data-anim="fade-up">
+            Transformamos marcas em multiplicadoras de micro-impactos,<br/>
+            para consolidá-las como as mais lembradas, desejadas e lucrativas.
+          </p>
+          <a href="#contact" class="btn btn--primary" data-anim="fade-up" data-magnetic>
+            <span class="btn__text">Iniciar Projeto</span>
+            <span class="btn__icon">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__scroll-indicator" data-anim="fade-up">
+        <div class="hero__scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
+    <!-- MARQUEE TRANSITION -->
+    <section class="marquee-section" data-nav-theme="dark">
+      <div class="marquee" data-speed="fast">
+        <div class="marquee__track">
+          <span class="marquee__text">PRECISÃO</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text">VELOCIDADE</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text">CRIATIVIDADE</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text">PERFORMANCE</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text">DADOS</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text">CORAGEM</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text">PRECISÃO</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text">VELOCIDADE</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text">CRIATIVIDADE</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text">PERFORMANCE</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text">DADOS</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text">CORAGEM</span>
+          <span class="marquee__separator">✦</span>
+        </div>
+      </div>
+      <div class="marquee marquee--reverse" data-speed="fast">
+        <div class="marquee__track marquee__track--reverse">
+          <span class="marquee__text marquee__text--outline">MICRO-IMPACTOS</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text marquee__text--outline">CADA PIXEL IMPORTA</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text marquee__text--outline">CADA SEGUNDO CONTA</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text marquee__text--outline">CADA TOUCHPOINT</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text marquee__text--outline">MICRO-IMPACTOS</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text marquee__text--outline">CADA PIXEL IMPORTA</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text marquee__text--outline">CADA SEGUNDO CONTA</span>
+          <span class="marquee__separator">✦</span>
+          <span class="marquee__text marquee__text--outline">CADA TOUCHPOINT</span>
+          <span class="marquee__separator">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
+    <!-- ABOUT / TENSÃO SECTION -->
+    <section class="about" id="about" data-nav-theme="light">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__left">
+            <span class="eyebrow" data-anim="fade-up">O CENÁRIO</span>
+            <h2 class="about__title" data-anim="word-reveal">
+              <span class="word-wrap"><span class="word">Todo</span></span>
+              <span class="word-wrap"><span class="word">mundo</span></span>
+              <span class="word-wrap"><span class="word">comunica.</span></span>
+              <br/>
+              <span class="word-wrap"><span class="word">Quase</span></span>
+              <span class="word-wrap"><span class="word">ninguém</span></span>
+              <br/>
+              <span class="word-wrap"><span class="word serif-italic gradient-text">se conecta.</span></span>
+            </h2>
+          </div>
+          <div class="about__right">
+            <p class="about__text" data-anim="fade-up">
+              O mercado está saturado de discursos parecidos e promessas idênticas.
+              Grandes agências são lentas, burocráticas e presas à lógica da
+              "grande campanha". O digital exige velocidade e adaptação constante.
+            </p>
+            <p class="about__text" data-anim="fade-up">
+              As marcas precisam de profundidade, não volume. Vínculos, não impressões.
+              Clareza, não barulho. Precisam de mais alma em um mundo de máquinas.
+              Mais coragem em um mar de mediocridade.
+            </p>
+            <div class="about__stats" data-anim="fade-up">
+              <div class="stat">
+                <span class="stat__number" data-count="240">0</span>
+                <span class="stat__suffix">+</span>
+                <span class="stat__label">Profissionais</span>
+              </div>
+              <div class="stat">
+                <span class="stat__number" data-count="11">0</span>
+                <span class="stat__suffix">anos</span>
+                <span class="stat__label">De experiência</span>
+              </div>
+              <div class="stat">
+                <span class="stat__number" data-count="3">0</span>
+                <span class="stat__suffix">%</span>
+                <span class="stat__label">Top Google Partners</span>
+              </div>
+            </div>
+            <a href="#" class="btn btn--outline" data-anim="fade-up" data-magnetic>
+              <span class="btn__text">Conheça a agência</span>
+              <span class="btn__icon">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
+    <!-- DIFERENCIAL -->
+    <section class="diferencial" data-nav-theme="dark">
+      <div class="container">
+        <div class="diferencial__grid">
+          <div class="diferencial__left">
+            <span class="eyebrow" data-anim="fade-up">NOSSO DIFERENCIAL</span>
+            <h2 class="diferencial__title" data-anim="word-reveal">
+              <span class="word-wrap"><span class="word">Criatividade</span></span>
+              <br/>
+              <span class="word-wrap"><span class="word">com</span></span>
+              <span class="word-wrap"><span class="word gradient-text">precisão.</span></span>
+            </h2>
+          </div>
+          <div class="diferencial__right">
+            <div class="diferencial__cards">
+              <div class="diferencial__card" data-anim="fade-up">
+                <h3 class="diferencial__card-title">Precisão sobre volume</h3>
+                <p>Cada peça precisa ter motivo e resultados. Não fazemos muito. Fazemos bem.</p>
+              </div>
+              <div class="diferencial__card" data-anim="fade-up">
+                <h3 class="diferencial__card-title">Criatividade que converte</h3>
+                <p>Ideia boa é a que move negócio. Cada touchpoint importa. Cada peça precisa performar.</p>
+              </div>
+              <div class="diferencial__card" data-anim="fade-up">
+                <h3 class="diferencial__card-title">Agilidade com inteligência</h3>
+                <p>Rápido não é raso. Rápido é afiado. Ritmo de internet, não de reunião.</p>
+              </div>
+              <div class="diferencial__card" data-anim="fade-up">
+                <h3 class="diferencial__card-title">Evidência + Sensibilidade</h3>
+                <p>Dados mostram. Cultura direciona. Criatividade amplifica.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
+    <!-- SERVICES - HORIZONTAL SCROLL -->
+    <section class="services" id="services" data-nav-theme="dark">
+      <div class="services__header container">
+        <span class="eyebrow" data-anim="fade-up">O QUE FAZEMOS</span>
+        <h2 class="services__title" data-anim="word-reveal">
+          <span class="word-wrap"><span class="word">Cada</span></span>
+          <span class="word-wrap"><span class="word">touchpoint</span></span>
+          <br/>
+          <span class="word-wrap"><span class="word serif-italic gradient-text">importa.</span></span>
+        </h2>
+      </div>
+
+      <div class="services__horizontal-wrap">
+        <div class="services__horizontal-track" id="servicesTrack">
+
+          <div class="service-card" data-anim="stagger">
+            <div class="service-card__number">01</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="40" cy="40" r="30" /><line x1="40" y1="10" x2="40" y2="70" /><line x1="10" y1="40" x2="70" y2="40" />
+                <path d="M15 25 Q40 5 65 25" /><path d="M15 55 Q40 75 65 55" />
+              </svg>
+            </div>
+            <h3 class="service-card__title">SEO & AEO</h3>
+            <p class="service-card__desc">Cada palavra conta. Otimização com precisão para que sua marca seja encontrada — e escolhida.</p>
+            <div class="service-card__line"></div>
+          </div>
+
+          <div class="service-card" data-anim="stagger">
+            <div class="service-card__number">02</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="12" y="12" width="56" height="56" rx="4" /><polyline points="22,50 35,35 45,42 58,28" />
+                <circle cx="58" cy="28" r="4" fill="currentColor" />
+              </svg>
+            </div>
+            <h3 class="service-card__title">Performance</h3>
+            <p class="service-card__desc">Google Partner Premier — Top 3%. Cada centavo investido tem propósito e ROI rastreável.</p>
+            <div class="service-card__line"></div>
+          </div>
+
+          <div class="service-card" data-anim="stagger">
+            <div class="service-card__number">03</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="40" cy="40" r="28" /><circle cx="40" cy="40" r="14" />
+                <circle cx="40" cy="40" r="4" fill="currentColor" /><line x1="40" y1="2" x2="40" y2="12" />
+                <line x1="40" y1="68" x2="40" y2="78" /><line x1="2" y1="40" x2="12" y2="40" /><line x1="68" y1="40" x2="78" y2="40" />
+              </svg>
+            </div>
+            <h3 class="service-card__title">Branding</h3>
+            <p class="service-card__desc">Marcas fortes reduzem CAC e aceleram vendas. Posicionamento afiado para marcas ambiciosas.</p>
+            <div class="service-card__line"></div>
+          </div>
+
+          <div class="service-card" data-anim="stagger">
+            <div class="service-card__number">04</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="8" y="16" width="64" height="44" rx="4" /><line x1="8" y1="30" x2="72" y2="30" />
+                <rect x="14" y="36" width="20" height="18" rx="2" /><line x1="40" y1="38" x2="66" y2="38" />
+                <line x1="40" y1="46" x2="60" y2="46" /><line x1="40" y1="54" x2="54" y2="54" />
+              </svg>
+            </div>
+            <h3 class="service-card__title">UX Design</h3>
+            <p class="service-card__desc">Cada pixel tem propósito. Interfaces que convertem, com design que performa e encanta.</p>
+            <div class="service-card__line"></div>
+          </div>
+
+          <div class="service-card" data-anim="stagger">
+            <div class="service-card__number">05</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 60 L40 15 L60 60" /><line x1="27" y1="45" x2="53" y2="45" />
+                <circle cx="40" cy="60" r="6" /><line x1="40" y1="66" x2="40" y2="75" />
+              </svg>
+            </div>
+            <h3 class="service-card__title">Growth Hacking</h3>
+            <p class="service-card__desc">Experimentação rápida e data science aplicada. Micro-testes que geram macro-resultados.</p>
+            <div class="service-card__line"></div>
+          </div>
+
+          <div class="service-card" data-anim="stagger">
+            <div class="service-card__number">06</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="30" cy="30" r="16" /><circle cx="50" cy="30" r="16" /><circle cx="40" cy="48" r="16" />
+              </svg>
+            </div>
+            <h3 class="service-card__title">Social Media</h3>
+            <p class="service-card__desc">Cada segundo de atenção é uma oportunidade. Conteúdo que engaja, converte e constrói marca.</p>
+            <div class="service-card__line"></div>
+          </div>
+
+          <div class="service-card" data-anim="stagger">
+            <div class="service-card__number">07</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M40 10 L40 70 M25 20 Q40 30 55 20 M20 35 Q40 48 60 35 M18 50 Q40 65 62 50" />
+              </svg>
+            </div>
+            <h3 class="service-card__title">Health Marketing</h3>
+            <p class="service-card__desc">Marketing especializado para saúde com compliance e resultados. Precisão onde mais importa.</p>
+            <div class="service-card__line"></div>
+          </div>
+
+          <div class="service-card" data-anim="stagger">
+            <div class="service-card__number">08</div>
+            <div class="service-card__icon">
+              <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M15 65 Q25 20 40 40 Q55 60 65 15" /><circle cx="15" cy="65" r="4" fill="currentColor" />
+                <circle cx="65" cy="15" r="4" fill="currentColor" />
+              </svg>
+            </div>
+            <h3 class="service-card__title">Agronegócio</h3>
+            <p class="service-card__desc">Estratégias digitais para o agro brasileiro. Cada touchpoint no campo gera resultado na cidade.</p>
+            <div class="service-card__line"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
+    <!-- IMPACT STATEMENT -->
+    <section class="impact" data-nav-theme="dark">
+      <div class="impact__orb impact__orb--left" aria-hidden="true"></div>
+      <div class="impact__orb impact__orb--right" aria-hidden="true"></div>
+      <div class="container">
+        <blockquote class="impact__quote" data-anim="word-reveal">
+          <span class="word-wrap"><span class="word">Sua</span></span>
+          <span class="word-wrap"><span class="word">marca</span></span>
+          <span class="word-wrap"><span class="word">não</span></span>
+          <span class="word-wrap"><span class="word">precisa</span></span>
+          <span class="word-wrap"><span class="word">de</span></span>
+          <span class="word-wrap"><span class="word">mais</span></span>
+          <span class="word-wrap"><span class="word">budget.</span></span>
+          <br/>
+          <span class="word-wrap"><span class="word">Precisa</span></span>
+          <span class="word-wrap"><span class="word">de</span></span>
+          <span class="word-wrap"><span class="word">mais</span></span>
+          <span class="word-wrap"><span class="word gradient-text">alma</span></span>
+          <br/>
+          <span class="word-wrap"><span class="word">em</span></span>
+          <span class="word-wrap"><span class="word">um</span></span>
+          <span class="word-wrap"><span class="word">mundo</span></span>
+          <span class="word-wrap"><span class="word">de</span></span>
+          <span class="word-wrap"><span class="word gradient-text">máquinas.</span></span>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
+    <!-- CASES SECTION -->
+    <section class="cases" id="cases" data-nav-theme="dark">
+      <div class="container">
+        <div class="cases__header">
+          <span class="eyebrow" data-anim="fade-up">CASES & CLIENTES</span>
+          <h2 class="cases__title" data-anim="word-reveal">
+            <span class="word-wrap"><span class="word">Micro-impactos</span></span>
+            <span class="word-wrap"><span class="word">que</span></span>
+            <br/>
+            <span class="word-wrap"><span class="word">geram</span></span>
+            <span class="word-wrap"><span class="word serif-italic gradient-text">macro-resultados.</span></span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="cases__grid">
+        <a href="#" class="case-card" data-anim="fade-up">
+          <div class="case-card__image" style="background: linear-gradient(135deg, #1a5e1a, #2d8e2d);">
+            <div class="case-card__overlay">
+              <span class="case-card__view">Ver Case →</span>
+            </div>
+            <div class="case-card__content-inner">
+              <svg viewBox="0 0 200 60" fill="white" opacity="0.9">
+                <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="700" font-size="28">SYNGENTA</text>
+              </svg>
+            </div>
+          </div>
+          <div class="case-card__info">
+            <span class="case-card__category">Agronegócio</span>
+            <h3 class="case-card__name">Caravana Virtual do Trigo</h3>
+            <p class="case-card__metric">+350% engagement</p>
+          </div>
+        </a>
+
+        <a href="#" class="case-card case-card--large" data-anim="fade-up">
+          <div class="case-card__image" style="background: linear-gradient(135deg, #6b1d83, #a020f0);">
+            <div class="case-card__overlay">
+              <span class="case-card__view">Ver Case →</span>
+            </div>
+            <div class="case-card__content-inner">
+              <svg viewBox="0 0 200 60" fill="white" opacity="0.9">
+                <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="700" font-size="28">DEEZER</text>
+              </svg>
+            </div>
+          </div>
+          <div class="case-card__info">
+            <span class="case-card__category">Entretenimento</span>
+            <h3 class="case-card__name">Estratégia de Performance</h3>
+            <p class="case-card__metric">+280% conversões</p>
+          </div>
+        </a>
+
+        <a href="#" class="case-card" data-anim="fade-up">
+          <div class="case-card__image" style="background: linear-gradient(135deg, #1a3a6b, #3b59fd);">
+            <div class="case-card__overlay">
+              <span class="case-card__view">Ver Case →</span>
+            </div>
+            <div class="case-card__content-inner">
+              <svg viewBox="0 0 200 60" fill="white" opacity="0.9">
+                <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="700" font-size="28">UOL</text>
+              </svg>
+            </div>
+          </div>
+          <div class="case-card__info">
+            <span class="case-card__category">Tecnologia</span>
+            <h3 class="case-card__name">Ecossistema Digital UOL</h3>
+            <p class="case-card__metric">3 verticais</p>
+          </div>
+        </a>
+
+        <a href="#" class="case-card" data-anim="fade-up">
+          <div class="case-card__image" style="background: linear-gradient(135deg, #8b0000, #ff4040);">
+            <div class="case-card__overlay">
+              <span class="case-card__view">Ver Case →</span>
+            </div>
+            <div class="case-card__content-inner">
+              <svg viewBox="0 0 200 60" fill="white" opacity="0.9">
+                <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="700" font-size="24">FARMADELIVERY</text>
+              </svg>
+            </div>
+          </div>
+          <div class="case-card__info">
+            <span class="case-card__category">Health</span>
+            <h3 class="case-card__name">Growth & Conversão</h3>
+            <p class="case-card__metric">+216% conversões</p>
+          </div>
+        </a>
+
+        <a href="#" class="case-card case-card--large" data-anim="fade-up">
+          <div class="case-card__image" style="background: linear-gradient(135deg, #c9a800, #ffd700);">
+            <div class="case-card__overlay">
+              <span class="case-card__view">Ver Case →</span>
+            </div>
+            <div class="case-card__content-inner">
+              <svg viewBox="0 0 300 60" fill="#1a1a1a" opacity="0.9">
+                <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="700" font-size="20">INSTITUTO AYRTON SENNA</text>
+              </svg>
+            </div>
+          </div>
+          <div class="case-card__info">
+            <span class="case-card__category">Educação / Social</span>
+            <h3 class="case-card__name">Campanha de Impacto</h3>
+            <p class="case-card__metric">Alcance nacional</p>
+          </div>
+        </a>
+
+        <a href="#" class="case-card" data-anim="fade-up">
+          <div class="case-card__image" style="background: linear-gradient(135deg, #0d1b2a, #1b3a4b);">
+            <div class="case-card__overlay">
+              <span class="case-card__view">Ver Case →</span>
+            </div>
+            <div class="case-card__content-inner">
+              <svg viewBox="0 0 200 60" fill="white" opacity="0.9">
+                <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="700" font-size="28">EUROFARMA</text>
+              </svg>
+            </div>
+          </div>
+          <div class="case-card__info">
+            <span class="case-card__category">Saúde / Pharma</span>
+            <h3 class="case-card__name">Marketing Farmacêutico</h3>
+            <p class="case-card__metric">+190% leads</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="container" style="text-align: center; padding-top: 4rem;">
+        <a href="#" class="btn btn--outline" data-magnetic>
+          <span class="btn__text">Ver Todos os Cases</span>
+          <span class="btn__icon">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- PARTNERS MARQUEE -->
+    <section class="partners" data-nav-theme="dark">
+      <div class="partners__label">
+        <span class="eyebrow">MARCAS QUE CONFIAM</span>
+      </div>
+      <div class="partners__marquee">
+        <div class="partners__track">
+          <span class="partners__logo">Syngenta</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">Deezer</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">UOL</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">Eurofarma</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">Apsen</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">Inst. Ayrton Senna</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">FarmaDelivery</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">MRS Logística</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">Grupo OR</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">Syngenta</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">Deezer</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">UOL</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">Eurofarma</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">Apsen</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">Inst. Ayrton Senna</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">FarmaDelivery</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">MRS Logística</span>
+          <span class="partners__dot">●</span>
+          <span class="partners__logo">Grupo OR</span>
+          <span class="partners__dot">●</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
+    <!-- INSIGHTS -->
+    <section class="insights" id="insights" data-nav-theme="light">
+      <div class="container">
+        <div class="insights__header">
+          <span class="eyebrow" data-anim="fade-up">INSIGHTS & EDUCAÇÃO</span>
+          <h2 class="insights__title" data-anim="word-reveal">
+            <span class="word-wrap"><span class="word">Conhecimento</span></span>
+            <span class="word-wrap"><span class="word">que</span></span>
+            <br/>
+            <span class="word-wrap"><span class="word serif-italic gradient-text">performa.</span></span>
+          </h2>
+        </div>
+
+        <div class="insights__grid">
+          <div class="insight-card" data-anim="fade-up">
+            <div class="insight-card__visual" style="background: linear-gradient(135deg, #00d6b5, #00abff);">
+              <div class="insight-card__icon">🚀</div>
+            </div>
+            <div class="insight-card__content">
+              <span class="insight-card__label">Plataforma</span>
+              <h3 class="insight-card__title">Universidade Macfor</h3>
+              <p class="insight-card__desc">Conteúdos sobre marketing, growth, estatística, LLMs e prompt engineering. Life Long Learning.</p>
+              <a href="#" class="insight-card__link">Explorar →</a>
+            </div>
+          </div>
+
+          <div class="insight-card" data-anim="fade-up">
+            <div class="insight-card__visual" style="background: linear-gradient(135deg, #814aff, #ca07a4);">
+              <div class="insight-card__icon">📊</div>
+            </div>
+            <div class="insight-card__content">
+              <span class="insight-card__label">Newsletter & Podcast</span>
+              <h3 class="insight-card__title">Bring Me Data</h3>
+              <p class="insight-card__desc">Newsletter curada e podcast com os maiores especialistas do mercado digital brasileiro.</p>
+              <a href="#" class="insight-card__link">Ouvir agora →</a>
+            </div>
+          </div>
+
+          <div class="insight-card" data-anim="fade-up">
+            <div class="insight-card__visual" style="background: linear-gradient(135deg, #ff642f, #facb0e);">
+              <div class="insight-card__icon">🎯</div>
+            </div>
+            <div class="insight-card__content">
+              <span class="insight-card__label">Metodologia</span>
+              <h3 class="insight-card__title">Performance Fee</h3>
+              <p class="insight-card__desc">Precificação atrelada a OKRs. Se não simplifica, não escala. Se não escala, não serve.</p>
+              <a href="#" class="insight-card__link">Saiba mais →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" data-nav-theme="dark">
+      <div class="cta-section__gradient"></div>
+      <div class="cta-section__orb cta-section__orb--1" aria-hidden="true"></div>
+      <div class="cta-section__orb cta-section__orb--2" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-section__content">
+          <h2 class="cta-section__title" data-anim="word-reveal">
+            <span class="word-wrap"><span class="word">Detalhe</span></span>
+            <span class="word-wrap"><span class="word">é</span></span>
+            <span class="word-wrap"><span class="word">estratégia.</span></span>
+            <br/>
+            <span class="word-wrap"><span class="word">Cada</span></span>
+            <span class="word-wrap"><span class="word">pixel,</span></span>
+            <span class="word-wrap"><span class="word">cada</span></span>
+            <br/>
+            <span class="word-wrap"><span class="word">palavra,</span></span>
+            <span class="word-wrap"><span class="word">cada</span></span>
+            <span class="word-wrap"><span class="word gradient-text">segundo.</span></span>
+          </h2>
+          <p class="cta-section__desc" data-anim="fade-up">
+            Quando grandes marcas demandam precisão estratégica,
+            velocidade de execução e ideias além do óbvio, elas nos procuram.
+          </p>
+          <a href="#contact" class="btn btn--gradient" data-anim="fade-up" data-magnetic>
+            <span class="btn__text">Quero um diagnóstico digital</span>
+            <span class="btn__icon">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" data-nav-theme="dark">
+      <div class="container">
+        <div class="contact__content">
+          <span class="eyebrow" data-anim="fade-up">VAMOS CONVERSAR</span>
+          <h2 class="contact__title" data-anim="word-reveal">
+            <span class="word-wrap"><span class="word">MICRO</span></span>
+            <span class="word-wrap"><span class="word">MOMENTS.</span></span>
+            <br/>
+            <span class="word-wrap"><span class="word gradient-text">BIG WINS.</span></span>
+          </h2>
+          <a href="mailto:contato@macfor.com.br" class="btn btn--large btn--outline" data-anim="fade-up" data-magnetic>
+            <span class="btn__text">contato@macfor.com.br</span>
+            <span class="btn__icon">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" data-nav-theme="dark">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <img src="/macfor-homepage-sem-foto/macfor-logo.webp" alt="Macfor" class="footer__logo-img" width="140" height="24" />
+            <p class="footer__tagline">Micro Moments. Big Wins.<br/>Precisão estratégica com velocidade.</p>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Mapa do Site</h4>
+            <a href="#" class="footer__link">Home</a>
+            <a href="#about" class="footer__link">Agência</a>
+            <a href="#services" class="footer__link">Serviços</a>
+            <a href="#cases" class="footer__link">Cases</a>
+            <a href="#insights" class="footer__link">Blog</a>
+            <a href="#contact" class="footer__link">Contato</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Serviços</h4>
+            <a href="#" class="footer__link">SEO & AEO</a>
+            <a href="#" class="footer__link">Performance</a>
+            <a href="#" class="footer__link">Branding</a>
+            <a href="#" class="footer__link">UX Design</a>
+            <a href="#" class="footer__link">Growth Hacking</a>
+            <a href="#" class="footer__link">Social Media</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Conecte-se</h4>
+            <a href="#" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="#" class="footer__link" target="_blank" rel="noopener">Instagram</a>
+            <a href="#" class="footer__link" target="_blank" rel="noopener">YouTube</a>
+            <a href="#" class="footer__link" target="_blank" rel="noopener">Spotify</a>
+            <a href="#" class="footer__link" target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__copyright">© 2026 Macfor. Todos os direitos reservados.</p>
+          <div class="footer__bottom-links">
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Vagas</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+</body>
+</html>
