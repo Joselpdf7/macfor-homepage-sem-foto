@@ -1607,21 +1607,216 @@ button {
   }
 }
 
+/* ---- GLOBAL FLOATING ORBS ---- */
+.global-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.global-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+  will-change: transform;
+}
+
+.global-orb--1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--gradient-start) 0%, transparent 70%);
+  top: 10%;
+  left: -5%;
+}
+
+.global-orb--2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--gradient-mid-2) 0%, transparent 70%);
+  top: 30%;
+  right: -10%;
+}
+
+.global-orb--3 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, var(--gradient-mid-3) 0%, transparent 70%);
+  top: 55%;
+  left: 10%;
+}
+
+.global-orb--4 {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, var(--gradient-end) 0%, transparent 70%);
+  top: 75%;
+  right: 5%;
+}
+
+.global-orb--5 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--gradient-mid-1) 0%, transparent 70%);
+  top: 120%;
+  left: -8%;
+}
+
+.global-orb--6 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--gradient-mid-2) 0%, transparent 70%);
+  top: 160%;
+  right: -5%;
+}
+
+/* ---- SECTION DIVIDERS ---- */
+.section-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  z-index: 1;
+}
+
+.section-divider__line {
+  width: 80%;
+  max-width: 600px;
+  height: 1px;
+  background: var(--gradient);
+  opacity: 0.3;
+  transform-origin: center;
+}
+
+.section-divider__dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gradient);
+  box-shadow: 0 0 20px rgba(0, 171, 255, 0.5);
+}
+
+/* ---- WORD REVEAL SYSTEM ---- */
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding: 0.05em 0;
+}
+
+.word {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+/* ---- IMPACT SECTION ORBS ---- */
+.impact__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.impact__orb--left {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--gradient-start) 0%, transparent 70%);
+  left: -10%;
+  top: 20%;
+}
+
+.impact__orb--right {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, var(--gradient-end) 0%, transparent 70%);
+  right: -10%;
+  bottom: 10%;
+}
+
+/* ---- CTA SECTION ORBS ---- */
+.cta-section__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.cta-section__orb--1 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--gradient-mid-2) 0%, transparent 70%);
+  left: 5%;
+  top: 10%;
+}
+
+.cta-section__orb--2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--gradient-mid-3) 0%, transparent 70%);
+  right: 5%;
+  bottom: 10%;
+}
+
 /* ---- ANIMATION HELPERS ---- */
 [data-anim="fade-up"] {
   opacity: 0;
   transform: translateY(40px);
 }
 
-[data-anim="fade-up"].is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity var(--duration-slow) var(--ease-out), transform var(--duration-slow) var(--ease-out);
-}
-
-/* Smooth section transitions */
+/* All sections need transparent bg for orbs to show through */
 section {
   position: relative;
+  z-index: 1;
+}
+
+/* Override backgrounds to be semi-transparent for global orb visibility */
+.marquee-section,
+.diferencial,
+.services,
+.impact,
+.cases,
+.partners,
+.cta-section,
+.contact {
+  background: rgba(10, 10, 10, 0.85);
+}
+
+.about,
+.insights {
+  background: rgba(17, 17, 17, 0.9);
+}
+
+[data-theme="light"] .marquee-section,
+[data-theme="light"] .diferencial,
+[data-theme="light"] .services,
+[data-theme="light"] .impact,
+[data-theme="light"] .cases,
+[data-theme="light"] .partners,
+[data-theme="light"] .cta-section,
+[data-theme="light"] .contact {
+  background: rgba(244, 244, 237, 0.88);
+}
+
+[data-theme="light"] .about,
+[data-theme="light"] .insights {
+  background: rgba(235, 238, 224, 0.92);
+}
+
+/* About section glow */
+.about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 50% 30%, rgba(0, 171, 255, 0.06), transparent 70%);
+  opacity: var(--glow-opacity, 0);
+  pointer-events: none;
+  transition: opacity 0.3s;
 }
 
 /* GPU acceleration for animated elements */
@@ -1630,8 +1825,22 @@ section {
 .service-card,
 .case-card,
 .insight-card,
+.diferencial__card,
 .cursor__dot,
-.cursor__outline {
+.cursor__outline,
+.global-orb,
+.section-divider__line,
+.section-divider__dot,
+.impact__orb,
+.cta-section__orb,
+.word {
   will-change: transform;
   backface-visibility: hidden;
+}
+
+/* Perspective for 3D card rotations */
+.cases__grid,
+.diferencial__cards,
+.insights__grid {
+  perspective: 1000px;
 }

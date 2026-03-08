@@ -83,6 +83,16 @@
     </div>
   </div>
 
+  <!-- GLOBAL FLOATING ORBS (persist across entire page) -->
+  <div class="global-orbs" aria-hidden="true">
+    <div class="global-orb global-orb--1"></div>
+    <div class="global-orb global-orb--2"></div>
+    <div class="global-orb global-orb--3"></div>
+    <div class="global-orb global-orb--4"></div>
+    <div class="global-orb global-orb--5"></div>
+    <div class="global-orb global-orb--6"></div>
+  </div>
+
   <!-- MAIN CONTENT -->
   <main id="smooth-content">
 
@@ -124,6 +134,9 @@
         <span>Scroll</span>
       </div>
     </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
 
     <!-- MARQUEE TRANSITION -->
     <section class="marquee-section" data-nav-theme="dark">
@@ -177,16 +190,24 @@
       </div>
     </section>
 
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
     <!-- ABOUT / TENSÃO SECTION -->
     <section class="about" id="about" data-nav-theme="light">
       <div class="container">
         <div class="about__grid">
           <div class="about__left">
             <span class="eyebrow" data-anim="fade-up">O CENÁRIO</span>
-            <h2 class="about__title" data-anim="text-reveal">
-              Todo mundo comunica.<br/>
-              Quase ninguém<br/>
-              <em class="serif-italic gradient-text">se conecta.</em>
+            <h2 class="about__title" data-anim="word-reveal">
+              <span class="word-wrap"><span class="word">Todo</span></span>
+              <span class="word-wrap"><span class="word">mundo</span></span>
+              <span class="word-wrap"><span class="word">comunica.</span></span>
+              <br/>
+              <span class="word-wrap"><span class="word">Quase</span></span>
+              <span class="word-wrap"><span class="word">ninguém</span></span>
+              <br/>
+              <span class="word-wrap"><span class="word serif-italic gradient-text">se conecta.</span></span>
             </h2>
           </div>
           <div class="about__right">
@@ -226,15 +247,20 @@
       </div>
     </section>
 
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
     <!-- DIFERENCIAL -->
     <section class="diferencial" data-nav-theme="dark">
       <div class="container">
         <div class="diferencial__grid">
           <div class="diferencial__left">
             <span class="eyebrow" data-anim="fade-up">NOSSO DIFERENCIAL</span>
-            <h2 class="diferencial__title" data-anim="text-reveal">
-              Criatividade<br/>
-              com <em class="gradient-text">precisão.</em>
+            <h2 class="diferencial__title" data-anim="word-reveal">
+              <span class="word-wrap"><span class="word">Criatividade</span></span>
+              <br/>
+              <span class="word-wrap"><span class="word">com</span></span>
+              <span class="word-wrap"><span class="word gradient-text">precisão.</span></span>
             </h2>
           </div>
           <div class="diferencial__right">
@@ -261,12 +287,18 @@
       </div>
     </section>
 
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
     <!-- SERVICES - HORIZONTAL SCROLL -->
     <section class="services" id="services" data-nav-theme="dark">
       <div class="services__header container">
         <span class="eyebrow" data-anim="fade-up">O QUE FAZEMOS</span>
-        <h2 class="services__title" data-anim="text-reveal">
-          Cada touchpoint<br/><em class="serif-italic gradient-text">importa.</em>
+        <h2 class="services__title" data-anim="word-reveal">
+          <span class="word-wrap"><span class="word">Cada</span></span>
+          <span class="word-wrap"><span class="word">touchpoint</span></span>
+          <br/>
+          <span class="word-wrap"><span class="word serif-italic gradient-text">importa.</span></span>
         </h2>
       </div>
 
@@ -381,25 +413,51 @@
       </div>
     </section>
 
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
     <!-- IMPACT STATEMENT -->
     <section class="impact" data-nav-theme="dark">
+      <div class="impact__orb impact__orb--left" aria-hidden="true"></div>
+      <div class="impact__orb impact__orb--right" aria-hidden="true"></div>
       <div class="container">
-        <blockquote class="impact__quote" data-anim="text-reveal">
-          <span class="impact__line">Sua marca não precisa</span>
-          <span class="impact__line">de mais budget.</span>
-          <span class="impact__line">Precisa de mais <em class="gradient-text">alma</em></span>
-          <span class="impact__line">em um mundo de <em class="gradient-text">máquinas.</em></span>
+        <blockquote class="impact__quote" data-anim="word-reveal">
+          <span class="word-wrap"><span class="word">Sua</span></span>
+          <span class="word-wrap"><span class="word">marca</span></span>
+          <span class="word-wrap"><span class="word">não</span></span>
+          <span class="word-wrap"><span class="word">precisa</span></span>
+          <span class="word-wrap"><span class="word">de</span></span>
+          <span class="word-wrap"><span class="word">mais</span></span>
+          <span class="word-wrap"><span class="word">budget.</span></span>
+          <br/>
+          <span class="word-wrap"><span class="word">Precisa</span></span>
+          <span class="word-wrap"><span class="word">de</span></span>
+          <span class="word-wrap"><span class="word">mais</span></span>
+          <span class="word-wrap"><span class="word gradient-text">alma</span></span>
+          <br/>
+          <span class="word-wrap"><span class="word">em</span></span>
+          <span class="word-wrap"><span class="word">um</span></span>
+          <span class="word-wrap"><span class="word">mundo</span></span>
+          <span class="word-wrap"><span class="word">de</span></span>
+          <span class="word-wrap"><span class="word gradient-text">máquinas.</span></span>
         </blockquote>
       </div>
     </section>
+
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
 
     <!-- CASES SECTION -->
     <section class="cases" id="cases" data-nav-theme="dark">
       <div class="container">
         <div class="cases__header">
           <span class="eyebrow" data-anim="fade-up">CASES & CLIENTES</span>
-          <h2 class="cases__title" data-anim="text-reveal">
-            Micro-impactos que<br/>geram <em class="serif-italic gradient-text">macro-resultados.</em>
+          <h2 class="cases__title" data-anim="word-reveal">
+            <span class="word-wrap"><span class="word">Micro-impactos</span></span>
+            <span class="word-wrap"><span class="word">que</span></span>
+            <br/>
+            <span class="word-wrap"><span class="word">geram</span></span>
+            <span class="word-wrap"><span class="word serif-italic gradient-text">macro-resultados.</span></span>
           </h2>
         </div>
       </div>
@@ -569,13 +627,19 @@
       </div>
     </section>
 
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
     <!-- INSIGHTS -->
     <section class="insights" id="insights" data-nav-theme="light">
       <div class="container">
         <div class="insights__header">
           <span class="eyebrow" data-anim="fade-up">INSIGHTS & EDUCAÇÃO</span>
-          <h2 class="insights__title" data-anim="text-reveal">
-            Conhecimento que<br/><em class="serif-italic gradient-text">performa.</em>
+          <h2 class="insights__title" data-anim="word-reveal">
+            <span class="word-wrap"><span class="word">Conhecimento</span></span>
+            <span class="word-wrap"><span class="word">que</span></span>
+            <br/>
+            <span class="word-wrap"><span class="word serif-italic gradient-text">performa.</span></span>
           </h2>
         </div>
 
@@ -619,15 +683,28 @@
       </div>
     </section>
 
+    <!-- SECTION DIVIDER -->
+    <div class="section-divider" aria-hidden="true"><div class="section-divider__line"></div><div class="section-divider__dot"></div></div>
+
     <!-- CTA SECTION -->
     <section class="cta-section" data-nav-theme="dark">
       <div class="cta-section__gradient"></div>
+      <div class="cta-section__orb cta-section__orb--1" aria-hidden="true"></div>
+      <div class="cta-section__orb cta-section__orb--2" aria-hidden="true"></div>
       <div class="container">
         <div class="cta-section__content">
-          <h2 class="cta-section__title" data-anim="text-reveal">
-            <span class="cta-section__line">Detalhe é estratégia.</span>
-            <span class="cta-section__line">Cada pixel, cada</span>
-            <span class="cta-section__line">palavra, cada <em class="gradient-text">segundo.</em></span>
+          <h2 class="cta-section__title" data-anim="word-reveal">
+            <span class="word-wrap"><span class="word">Detalhe</span></span>
+            <span class="word-wrap"><span class="word">é</span></span>
+            <span class="word-wrap"><span class="word">estratégia.</span></span>
+            <br/>
+            <span class="word-wrap"><span class="word">Cada</span></span>
+            <span class="word-wrap"><span class="word">pixel,</span></span>
+            <span class="word-wrap"><span class="word">cada</span></span>
+            <br/>
+            <span class="word-wrap"><span class="word">palavra,</span></span>
+            <span class="word-wrap"><span class="word">cada</span></span>
+            <span class="word-wrap"><span class="word gradient-text">segundo.</span></span>
           </h2>
           <p class="cta-section__desc" data-anim="fade-up">
             Quando grandes marcas demandam precisão estratégica,
@@ -646,9 +723,11 @@
       <div class="container">
         <div class="contact__content">
           <span class="eyebrow" data-anim="fade-up">VAMOS CONVERSAR</span>
-          <h2 class="contact__title" data-anim="text-reveal">
-            <span>MICRO MOMENTS.</span>
-            <span><em class="gradient-text">BIG WINS.</em></span>
+          <h2 class="contact__title" data-anim="word-reveal">
+            <span class="word-wrap"><span class="word">MICRO</span></span>
+            <span class="word-wrap"><span class="word">MOMENTS.</span></span>
+            <br/>
+            <span class="word-wrap"><span class="word gradient-text">BIG WINS.</span></span>
           </h2>
           <a href="mailto:contato@macfor.com.br" class="btn btn--large btn--outline" data-anim="fade-up" data-magnetic>
             <span class="btn__text">contato@macfor.com.br</span>

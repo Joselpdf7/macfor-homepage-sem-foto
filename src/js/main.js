@@ -428,7 +428,7 @@ class WebGLOrb {
 }
 
 // ============================================
-// ANIMATIONS
+// ANIMATIONS (itsoffbrand.com-style scroll effects)
 // ============================================
 class Animations {
   constructor() {
@@ -438,17 +438,26 @@ class Animations {
   init() {
     window.addEventListener('preloaderComplete', () => {
       this.heroAnimations()
-      this.setupScrollAnimations()
-      this.setupTextReveals()
+      this.setupGlobalOrbs()
+      this.setupWordReveals()
+      this.setupFadeUpAnimations()
+      this.setupParallaxEffects()
+      this.setupSectionDividers()
       this.setupCounters()
       this.setupHorizontalScroll()
+      this.setupCaseCards()
+      this.setupInsightCards()
+      this.setupDiferencialCards()
+      this.setupMarqueeScrollSpeed()
+      this.setupNavScrollState()
+      this.setupSectionGlows()
     })
   }
 
+  // ---- HERO ENTRANCE ----
   heroAnimations() {
     const tl = gsap.timeline({ delay: 0.3 })
 
-    // Reveal hero title words
     tl.to('.hero__title-word', {
       y: 0,
       duration: 1.2,
@@ -482,43 +491,21 @@ class Animations {
       duration: 0.8,
       ease: 'power3.out',
     }, '-=0.4')
-  }
 
-  setupScrollAnimations() {
-    // Fade up animations
-    gsap.utils.toArray('[data-anim="fade-up"]').forEach(el => {
-      // Skip hero elements (already animated)
-      if (el.closest('.hero')) return
-
-      ScrollTrigger.create({
-        trigger: el,
-        start: 'top 85%',
-        onEnter: () => {
-          gsap.to(el, {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: 'power3.out',
-          })
-        },
-        once: true,
-      })
-    })
-
-    // Nav scroll state
-    ScrollTrigger.create({
-      start: 'top -80',
-      onUpdate: (self) => {
-        const nav = document.getElementById('nav')
-        if (self.direction === 1 && self.scroll() > 80) {
-          nav.classList.add('is-scrolled')
-        } else if (self.scroll() <= 80) {
-          nav.classList.remove('is-scrolled')
-        }
+    // Hero exit: scale down + fade as you scroll past
+    gsap.to('.hero__content', {
+      scale: 0.9,
+      opacity: 0,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: '70% top',
+        scrub: true,
       }
     })
 
-    // Parallax on orb
+    // Parallax on hero canvas
     gsap.to('.hero__canvas', {
       yPercent: 30,
       ease: 'none',
@@ -531,47 +518,190 @@ class Animations {
     })
   }
 
-  setupTextReveals() {
-    gsap.utils.toArray('[data-anim="text-reveal"]').forEach(el => {
-      // Skip hero elements
-      if (el.closest('.hero')) return
+  // ---- GLOBAL FLOATING ORBS with parallax ----
+  setupGlobalOrbs() {
+    const orbs = document.querySelectorAll('.global-orb')
+    if (!orbs.length) return
 
-      const lines = el.querySelectorAll('.impact__line, .cta-section__line, span')
-      if (lines.length === 0) {
-        // Animate the element itself
-        ScrollTrigger.create({
-          trigger: el,
-          start: 'top 80%',
-          onEnter: () => {
-            gsap.fromTo(el, { opacity: 0, y: 60 }, {
-              opacity: 1,
-              y: 0,
-              duration: 1.2,
-              ease: 'power4.out',
-            })
-          },
-          once: true,
-        })
-      } else {
-        // Animate each line
-        ScrollTrigger.create({
-          trigger: el,
-          start: 'top 80%',
-          onEnter: () => {
-            gsap.fromTo(lines, { opacity: 0, y: 60 }, {
-              opacity: 1,
-              y: 0,
-              duration: 1.2,
-              ease: 'power4.out',
-              stagger: 0.15,
-            })
-          },
-          once: true,
-        })
-      }
+    // Each orb moves at different speed creating depth
+    const speeds = [0.3, -0.5, 0.2, -0.4, 0.6, -0.3]
+    const xSpeeds = [15, -20, 10, -15, 25, -10]
+
+    orbs.forEach((orb, i) => {
+      gsap.to(orb, {
+        yPercent: speeds[i] * 100,
+        xPercent: xSpeeds[i],
+        ease: 'none',
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1.5,
+        }
+      })
     })
   }
 
+  // ---- WORD-BY-WORD REVEAL with scrub ----
+  setupWordReveals() {
+    gsap.utils.toArray('[data-anim="word-reveal"]').forEach(el => {
+      const words = el.querySelectorAll('.word')
+      if (!words.length) return
+
+      // Set initial state
+      gsap.set(words, { opacity: 0.15, y: 20, filter: 'blur(4px)' })
+
+      // Scrub-based word reveal tied to scroll progress
+      gsap.to(words, {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        stagger: 0.05,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 80%',
+          end: 'top 30%',
+          scrub: 0.8,
+        }
+      })
+    })
+  }
+
+  // ---- FADE UP with stagger (scrub-based) ----
+  setupFadeUpAnimations() {
+    gsap.utils.toArray('[data-anim="fade-up"]').forEach(el => {
+      if (el.closest('.hero')) return
+
+      gsap.fromTo(el,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            end: 'top 60%',
+            scrub: 0.6,
+          }
+        }
+      )
+    })
+  }
+
+  // ---- PARALLAX on various elements ----
+  setupParallaxEffects() {
+    // About section parallax
+    const aboutStats = document.querySelector('.about__stats')
+    if (aboutStats) {
+      gsap.fromTo(aboutStats, { y: 60 }, {
+        y: -30,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: aboutStats,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        }
+      })
+    }
+
+    // Impact orbs parallax
+    gsap.utils.toArray('.impact__orb').forEach((orb, i) => {
+      gsap.fromTo(orb,
+        { scale: 0.6, opacity: 0 },
+        {
+          scale: 1.2,
+          opacity: 0.6,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.impact',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          }
+        }
+      )
+    })
+
+    // CTA orbs parallax
+    gsap.utils.toArray('.cta-section__orb').forEach((orb, i) => {
+      gsap.fromTo(orb,
+        { scale: 0.5, opacity: 0, rotation: i * 30 },
+        {
+          scale: 1.3,
+          opacity: 0.5,
+          rotation: i * 30 + 60,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.cta-section',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          }
+        }
+      )
+    })
+
+    // Eyebrow lines parallax
+    gsap.utils.toArray('.eyebrow').forEach(eyebrow => {
+      gsap.fromTo(eyebrow,
+        { x: -20, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: eyebrow,
+            start: 'top 88%',
+            end: 'top 65%',
+            scrub: 0.5,
+          }
+        }
+      )
+    })
+  }
+
+  // ---- SECTION DIVIDERS animation ----
+  setupSectionDividers() {
+    gsap.utils.toArray('.section-divider').forEach(divider => {
+      const line = divider.querySelector('.section-divider__line')
+      const dot = divider.querySelector('.section-divider__dot')
+
+      gsap.fromTo(line,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: divider,
+            start: 'top 85%',
+            end: 'top 50%',
+            scrub: 0.5,
+          }
+        }
+      )
+
+      gsap.fromTo(dot,
+        { scale: 0, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          ease: 'back.out(3)',
+          scrollTrigger: {
+            trigger: divider,
+            start: 'top 70%',
+            end: 'top 45%',
+            scrub: 0.5,
+          }
+        }
+      )
+    })
+  }
+
+  // ---- COUNTERS ----
   setupCounters() {
     gsap.utils.toArray('[data-count]').forEach(counter => {
       const target = parseInt(counter.dataset.count)
@@ -585,7 +715,7 @@ class Animations {
             duration: 2,
             ease: 'power2.out',
             snap: { textContent: 1 },
-            onUpdate: function() {
+            onUpdate: function () {
               counter.textContent = Math.round(gsap.getProperty(counter, 'textContent'))
             }
           })
@@ -595,6 +725,7 @@ class Animations {
     })
   }
 
+  // ---- HORIZONTAL SCROLL with card reveals ----
   setupHorizontalScroll() {
     const track = document.getElementById('servicesTrack')
     if (!track) return
@@ -602,9 +733,9 @@ class Animations {
     const cards = track.querySelectorAll('.service-card')
     if (cards.length === 0) return
 
-    // Calculate scroll distance
     const getScrollWidth = () => track.scrollWidth - window.innerWidth + 100
 
+    // Main horizontal scroll
     gsap.to(track, {
       x: () => -getScrollWidth(),
       ease: 'none',
@@ -619,20 +750,195 @@ class Animations {
       }
     })
 
-    // Stagger card appearance
+    // Cards stagger with scale + rotation on entry
     cards.forEach((card, i) => {
-      gsap.fromTo(card, { opacity: 0, y: 60 }, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.services',
-          start: `top ${80 - i * 5}%`,
-          once: true,
+      gsap.fromTo(card,
+        { opacity: 0, y: 80, scale: 0.9, rotateX: 8 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotateX: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.services',
+            start: `top ${85 - i * 4}%`,
+            once: true,
+          }
         }
-      })
+      )
     })
+  }
+
+  // ---- CASE CARDS with staggered scroll reveal ----
+  setupCaseCards() {
+    gsap.utils.toArray('.case-card').forEach((card, i) => {
+      gsap.fromTo(card,
+        {
+          opacity: 0,
+          y: 80,
+          scale: 0.92,
+          rotateY: i % 2 === 0 ? -3 : 3,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotateY: 0,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 90%',
+            end: 'top 55%',
+            scrub: 0.6,
+          }
+        }
+      )
+    })
+  }
+
+  // ---- INSIGHT CARDS with staggered reveal ----
+  setupInsightCards() {
+    gsap.utils.toArray('.insight-card').forEach((card, i) => {
+      gsap.fromTo(card,
+        { opacity: 0, y: 60, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 90%',
+            end: 'top 60%',
+            scrub: 0.5,
+          }
+        }
+      )
+    })
+  }
+
+  // ---- DIFERENCIAL CARDS with stagger ----
+  setupDiferencialCards() {
+    gsap.utils.toArray('.diferencial__card').forEach((card, i) => {
+      gsap.fromTo(card,
+        { opacity: 0, y: 50, scale: 0.93 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 90%',
+            end: 'top 65%',
+            scrub: 0.5,
+          }
+        }
+      )
+    })
+  }
+
+  // ---- MARQUEE speed variation on scroll ----
+  setupMarqueeScrollSpeed() {
+    // Speed up marquee based on scroll velocity
+    const marquees = document.querySelectorAll('.marquee__track')
+    let currentSpeed = 1
+
+    ScrollTrigger.create({
+      trigger: '.marquee-section',
+      start: 'top bottom',
+      end: 'bottom top',
+      onUpdate: (self) => {
+        const velocity = Math.abs(self.getVelocity()) / 1000
+        const speedMultiplier = 1 + Math.min(velocity, 5)
+
+        marquees.forEach(track => {
+          gsap.to(track, {
+            timeScale: speedMultiplier,
+            duration: 0.3,
+            overwrite: true,
+          })
+        })
+      }
+    })
+
+    // Skew marquee based on scroll direction
+    ScrollTrigger.create({
+      trigger: '.marquee-section',
+      start: 'top bottom',
+      end: 'bottom top',
+      onUpdate: (self) => {
+        const skew = Math.min(Math.max(self.getVelocity() / 300, -5), 5)
+        gsap.to('.marquee-section', {
+          skewX: skew,
+          duration: 0.3,
+          ease: 'power2.out',
+        })
+      },
+      onLeave: () => {
+        gsap.to('.marquee-section', { skewX: 0, duration: 0.5 })
+      },
+      onLeaveBack: () => {
+        gsap.to('.marquee-section', { skewX: 0, duration: 0.5 })
+      }
+    })
+  }
+
+  // ---- NAV scroll state ----
+  setupNavScrollState() {
+    ScrollTrigger.create({
+      start: 'top -80',
+      onUpdate: (self) => {
+        const nav = document.getElementById('nav')
+        if (self.direction === 1 && self.scroll() > 80) {
+          nav.classList.add('is-scrolled')
+        } else if (self.scroll() <= 80) {
+          nav.classList.remove('is-scrolled')
+        }
+      }
+    })
+  }
+
+  // ---- SECTION GLOW transitions ----
+  setupSectionGlows() {
+    // About section: gentle glow appear on enter
+    const aboutSection = document.querySelector('.about')
+    if (aboutSection) {
+      gsap.fromTo(aboutSection,
+        { '--glow-opacity': 0 },
+        {
+          '--glow-opacity': 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: aboutSection,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: true,
+          }
+        }
+      )
+    }
+
+    // Contact section scale-up entrance
+    const contactSection = document.querySelector('.contact')
+    if (contactSection) {
+      gsap.fromTo('.contact__content',
+        { scale: 0.85, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: contactSection,
+            start: 'top 80%',
+            end: 'top 35%',
+            scrub: 0.8,
+          }
+        }
+      )
+    }
   }
 }
 
