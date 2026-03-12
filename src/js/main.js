@@ -1010,6 +1010,165 @@ class TabTitle {
 }
 
 // ============================================
+// MOUSE PARALLAX (multi-plane depth effect)
+// ============================================
+class MouseParallax {
+  constructor() {
+    this.mouse = { x: 0, y: 0 }
+    this.current = { x: 0, y: 0 }
+    this.ease = 0.06
+    this.isRunning = false
+    this.layers = []
+    this.init()
+  }
+
+  init() {
+    // Layers defined by [selector, depthX, depthY]
+    // Higher depth = more movement (further from viewer)
+    this.layerConfig = [
+      ['.hero__eyebrow',     -12,  -8],
+      ['.hero__title-line',  -20, -14],
+      ['.hero__description', -10,  -7],
+      ['.hero__bottom .btn',  -8,  -5],
+      ['.hero__canvas',       15,  10],
+      ['.global-orb--1',      25,  18],
+      ['.global-orb--2',     -30, -22],
+      ['.global-orb--3',      20,  15],
+    ]
+
+    this.layers = this.layerConfig.map(([sel, dx, dy]) => ({
+      el: document.querySelector(sel),
+      dx,
+      dy,
+    })).filter(l => l.el !== null)
+
+    if (!this.layers.length) return
+
+    window.addEventListener('mousemove', (e) => {
+      // Normalize to -1 / +1 range from center
+      this.mouse.x = (e.clientX / window.innerWidth  - 0.5) * 2
+      this.mouse.y = (e.clientY / window.innerHeight - 0.5) * 2
+    })
+
+    // Only run while hero is in view
+    ScrollTrigger.create({
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      onEnter:      () => this.start(),
+      onLeave:      () => this.stop(),
+      onEnterBack:  () => this.start(),
+      onLeaveBack:  () => this.stop(),
+    })
+
+    this.start()
+  }
+
+  start() {
+    if (this.isRunning) return
+    this.isRunning = true
+    this.tick()
+  }
+
+  stop() {
+    this.isRunning = false
+    // Reset all layers
+    this.layers.forEach(({ el }) => {
+      gsap.to(el, { x: 0, y: 0, duration: 0.8, ease: 'power2.out' })
+    })
+  }
+
+  tick() {
+    if (!this.isRunning) return
+
+    // Lerp towards mouse
+    this.current.x += (this.mouse.x - this.current.x) * this.ease
+    this.current.y += (this.mouse.y - this.current.y) * this.ease
+
+    this.layers.forEach(({ el, dx, dy }) => {
+      el.style.transform = `translate3d(${this.current.x * dx}px, ${this.current.y * dy}px, 0)`
+    })
+
+    requestAnimationFrame(() => this.tick())
+  }
+}
+
+// ============================================
+// SECTION PARALLAX (title vs content depth)
+// ============================================
+class SectionParallax {
+  constructor() {
+    this.init()
+  }
+
+  init() {
+    // Each section title moves slower than its container = depth separation
+    const titlePairs = [
+      { title: '.about__title',       section: '.about'       },
+      { title: '.diferencial__title', section: '.diferencial' },
+      { title: '.cases__title',       section: '.cases'       },
+      { title: '.insights__title',    section: '.insights'    },
+      { title: '.cta-section__title', section: '.cta-section' },
+    ]
+
+    titlePairs.forEach(({ title, section }) => {
+      const el = document.querySelector(title)
+      const trigger = document.querySelector(section)
+      if (!el || !trigger) return
+
+      gsap.fromTo(el,
+        { y: 40 },
+        {
+          y: -40,
+          ease: 'none',
+          scrollTrigger: {
+            trigger,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          }
+        }
+      )
+    })
+
+    // Eyebrows slide in from left at different speeds
+    document.querySelectorAll('.eyebrow').forEach((el, i) => {
+      gsap.fromTo(el,
+        { x: -30 + i * -5 },
+        {
+          x: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 90%',
+            end: 'top 40%',
+            scrub: 0.8,
+          }
+        }
+      )
+    })
+
+    // Case cards: alternating depth on scroll
+    document.querySelectorAll('.case-card').forEach((card, i) => {
+      const direction = i % 2 === 0 ? 1 : -1
+      gsap.fromTo(card,
+        { y: 30 * direction },
+        {
+          y: -20 * direction,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          }
+        }
+      )
+    })
+  }
+}
+
+// ============================================
 // INITIALIZE EVERYTHING
 // ============================================
 function init() {
@@ -1021,6 +1180,11 @@ function init() {
   const animations = new Animations()
   const navigation = new Navigation(smoothScroll)
   const tabTitle = new TabTitle()
+
+  window.addEventListener('preloaderComplete', () => {
+    new MouseParallax()
+    new SectionParallax()
+  })
 }
 
 if (document.readyState === 'loading') {
